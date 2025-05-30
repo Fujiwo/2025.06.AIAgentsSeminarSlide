@@ -69,7 +69,29 @@ def create_ai_agents_mcp_presentation():
     p.text = "GitHub Copilot Coding Agent"
     p.level = 1
     
-    # スライド3: GitHub Copilot Coding Agent
+    # スライド3: AIエージェントエコシステム
+    slide = prs.slides.add_slide(bullet_slide_layout)
+    title = slide.shapes.title
+    title.text = "AIエージェントエコシステム"
+    
+    # エコシステム図を追加
+    textbox = slide.shapes.add_textbox(Inches(1), Inches(1.5), Inches(8), Inches(5))
+    text_frame = textbox.text_frame
+    text_frame.text = """AIエージェントエコシステム:
+    
+                    [Human User]
+                         ↓
+                   [AI Assistant]
+                    ↙    ↓    ↘
+            [Code Agent] [Data Agent] [UI Agent]
+                 ↓           ↓           ↓
+              [GitHub]   [Database]   [Browser]
+                 ↓           ↓           ↓
+            [Repository] [Analytics] [Web Apps]
+    
+    全てのエージェントがMCPプロトコルで相互接続"""
+    
+    # スライド4: GitHub Copilot Coding Agent
     slide = prs.slides.add_slide(bullet_slide_layout)
     title = slide.shapes.title
     title.text = "GitHub Copilot Coding Agent"
@@ -84,7 +106,7 @@ def create_ai_agents_mcp_presentation():
     text_frame = textbox.text_frame
     text_frame.text = "出典: GitHub Copilot Coding Agent発表資料"
     
-    # スライド4: MCPとは
+    # スライド5: MCPとは
     slide = prs.slides.add_slide(bullet_slide_layout)
     title = slide.shapes.title
     title.text = "MCP (Model Context Protocol) とは？"
@@ -105,7 +127,7 @@ def create_ai_agents_mcp_presentation():
     p.text = "AIエージェント間のスムーズな情報交換と連携を実現"
     p.level = 1
     
-    # スライド5: MCP概念図
+    # スライド6: MCP概念図
     slide = prs.slides.add_slide(bullet_slide_layout)
     title = slide.shapes.title
     title.text = "MCP概念図"
@@ -120,7 +142,7 @@ def create_ai_agents_mcp_presentation():
     text_frame = textbox.text_frame
     text_frame.text = "出典: [速報] MicrosoftがWindowsでMCPサポートを発表、AIエージェントがWindowsやアプリと連携可能に - Publickey\nhttps://www.publickey1.jp/blog/25/windowsmcpaiwindows.html"
     
-    # スライド6: Microsoft BUILD 2025
+    # スライド7: Microsoft BUILD 2025
     slide = prs.slides.add_slide(bullet_slide_layout)
     title = slide.shapes.title
     title.text = "Microsoft BUILD 2025"
@@ -142,7 +164,7 @@ def create_ai_agents_mcp_presentation():
                       "https://image.itmedia.co.jp/news/articles/2505/20/l_yu_satya.jpg",
                       Inches(1), Inches(3.5), Inches(8), Inches(3))
     
-    # スライド7: 主な発表内容
+    # スライド8: 主な発表内容
     slide = prs.slides.add_slide(bullet_slide_layout)
     title = slide.shapes.title
     title.text = "主な発表内容"
@@ -163,7 +185,7 @@ def create_ai_agents_mcp_presentation():
     p.text = "GitHub Copilot Coding Agentの発表"
     p.level = 0
     
-    # スライド8: マルチエージェントオーケストレーション
+    # スライド9: マルチエージェントオーケストレーション
     slide = prs.slides.add_slide(bullet_slide_layout)
     title = slide.shapes.title
     title.text = "マルチエージェントオーケストレーション"
@@ -184,7 +206,18 @@ def create_ai_agents_mcp_presentation():
     p.text = "サービス、OS、アプリケーション、Webページとの連携"
     p.level = 1
     
-    # スライド9: MCPサーバー
+    # 概念図を追加（シンプルなテキストベースの図）
+    textbox = slide.shapes.add_textbox(Inches(1), Inches(4), Inches(8), Inches(2.5))
+    text_frame = textbox.text_frame
+    text_frame.text = """マルチエージェント構成例:
+    
+    [UI Agent] ←→ [MCP Protocol] ←→ [API Agent]
+         ↕                              ↕
+    [User Interface]              [External Services]
+         ↕                              ↕  
+    [Analytics Agent] ←→ [MCP] ←→ [Database Agent]"""
+    
+    # スライド10: MCPサーバー
     slide = prs.slides.add_slide(bullet_slide_layout)
     title = slide.shapes.title
     title.text = "MCPサーバー"
@@ -205,7 +238,33 @@ def create_ai_agents_mcp_presentation():
     p.text = "Claude Desktopでの利用デモも提供"
     p.level = 1
     
-    # スライド10: .NETでのMCPサーバー開発
+    # MCPサーバーアーキテクチャ図を追加
+    textbox = slide.shapes.add_textbox(Inches(1), Inches(4), Inches(8), Inches(2.5))
+    text_frame = textbox.text_frame
+    text_frame.text = """MCPサーバーアーキテクチャ:
+    
+    [AI Agent] ←→ [MCP Protocol] ←→ [MCP Server]
+                                          ↓
+                                   [Adapter Layer]
+                                          ↓
+                        [Database] [API] [File System] [Web Services]"""
+    
+    # スライド11: MCPサーバー実装例
+    slide = prs.slides.add_slide(bullet_slide_layout)
+    title = slide.shapes.title
+    title.text = "MCPサーバー実装例"
+    
+    # 実装例の写真/スクリーンショットとして、Claude Desktopの例を追加
+    add_image_from_url(slide,
+                      "https://docs.anthropic.com/en/docs/_next/image?url=%2Fen%2Fdocs%2F_next%2Fstatic%2Fmedia%2Fmcp-architecture.bfaa5e8c.png&w=1080&q=75",
+                      Inches(0.5), Inches(2), Inches(9), Inches(4.5))
+    
+    # ソース情報を追加
+    textbox = slide.shapes.add_textbox(Inches(0.5), Inches(6.8), Inches(9), Inches(0.8))
+    text_frame = textbox.text_frame
+    text_frame.text = "出典: Anthropic MCP Documentation - Claude Desktop MCP Integration Example"
+    
+    # スライド12: .NETでのMCPサーバー開発
     slide = prs.slides.add_slide(bullet_slide_layout)
     title = slide.shapes.title
     title.text = ".NETでのMCPサーバー開発"
@@ -226,7 +285,7 @@ def create_ai_agents_mcp_presentation():
     p.text = "実践的なデモンストレーション付き"
     p.level = 1
     
-    # スライド11: Visual Studio Codeでの利用
+    # スライド13: Visual Studio Codeでの利用
     slide = prs.slides.add_slide(bullet_slide_layout)
     title = slide.shapes.title
     title.text = "Visual Studio Codeでの利用"
@@ -247,7 +306,7 @@ def create_ai_agents_mcp_presentation():
     p.text = "実際のワークフローでのデモンストレーション"
     p.level = 1
     
-    # スライド12: 未来への展望
+    # スライド14: 未来への展望
     slide = prs.slides.add_slide(bullet_slide_layout)
     title = slide.shapes.title
     title.text = "未来への展望"
@@ -272,7 +331,7 @@ def create_ai_agents_mcp_presentation():
     p.text = "Microsoft、その他多くのIT企業がMCPを採用"
     p.level = 1
     
-    # スライド13: まとめ
+    # スライド15: まとめ
     slide = prs.slides.add_slide(bullet_slide_layout)
     title = slide.shapes.title
     title.text = "まとめ"
@@ -293,25 +352,65 @@ def create_ai_agents_mcp_presentation():
     p.text = "実践的なデモと開発環境の整備が進行中"
     p.level = 1
     
-    # スライド14: 参考資料
+    # スライド16: 参考資料
     slide = prs.slides.add_slide(bullet_slide_layout)
     title = slide.shapes.title
     title.text = "参考資料"
     
     content = slide.placeholders[1]
     tf = content.text_frame
-    tf.text = "Microsoft Build 2025 Keynote Summary: Theme is \"AI Agent Era\" - ITmedia NEWS"
+    tf.text = "Microsoft Build 2025 公式情報"
     
     p = tf.add_paragraph()
     p.text = "https://www.itmedia.co.jp/news/articles/2505/20/news097.html"
     p.level = 1
     
     p = tf.add_paragraph()
-    p.text = "[速報] MicrosoftがWindowsでMCPサポートを発表 - Publickey"
+    p.text = "https://www.publickey1.jp/blog/25/windowsmcpaiwindows.html"
+    p.level = 1
+    
+    p = tf.add_paragraph()
+    p.text = "GitHub Copilot 関連"
     p.level = 0
     
     p = tf.add_paragraph()
-    p.text = "https://www.publickey1.jp/blog/25/windowsmcpaiwindows.html"
+    p.text = "https://github.com/features/copilot"
+    p.level = 1
+    
+    p = tf.add_paragraph()
+    p.text = "https://docs.github.com/en/copilot"
+    p.level = 1
+    
+    p = tf.add_paragraph()
+    p.text = "MCP (Model Context Protocol) 関連"
+    p.level = 0
+    
+    p = tf.add_paragraph()
+    p.text = "https://modelcontextprotocol.org/"
+    p.level = 1
+    
+    p = tf.add_paragraph()
+    p.text = "https://github.com/modelcontextprotocol"
+    p.level = 1
+    
+    p = tf.add_paragraph()
+    p.text = "AI エージェント関連"
+    p.level = 0
+    
+    p = tf.add_paragraph()
+    p.text = "https://openai.com/research/agents"
+    p.level = 1
+    
+    p = tf.add_paragraph()
+    p.text = "https://claude.ai/"
+    p.level = 1
+    
+    p = tf.add_paragraph()
+    p.text = "https://cursor.sh/"
+    p.level = 1
+    
+    p = tf.add_paragraph()
+    p.text = "https://github.com/cline/cline"
     p.level = 1
     
     # プレゼンテーションを保存
